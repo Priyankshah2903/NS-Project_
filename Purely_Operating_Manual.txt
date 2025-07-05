@@ -1,0 +1,71 @@
+
+===========================
+OPERATING MANUAL: PURELY
+===========================
+
+ROLES & FEATURES:
+------------------
+1. Patient:
+   - Register/login using MetaMask
+   - View/buy insurance policies
+   - Upload encrypted medical records
+   - Share records securely with doctors
+
+2. Doctor:
+   - Register/login using MetaMask
+   - Access encrypted records if access is granted
+   - Add diagnosis encrypted with patient’s DID
+   - Initiate insurance claim request
+
+3. Insurer:
+   - Register/login using MetaMask
+   - Create insurance policies
+   - View and approve/reject claims
+
+----------------------
+DID CREATION & USAGE
+----------------------
+- DIDs are generated during registration
+- Ed25519 keys for signing
+- X25519 keys for encryption
+- Format: did:key:z{base64_publicKey}
+- Stored securely in 'dids.json'
+
+------------------------
+DATA SHARING & ENCRYPTION
+------------------------
+- Files are encrypted with recipient's public DID (X25519)
+- Stored in IPFS with CID reference
+- Only recipient with private key can decrypt
+- Node.js backend handles encryption/decryption
+
+------------------------
+SMART CONTRACT OVERVIEW
+------------------------
+- register(userType)
+- createPolicy(policyDetails)
+- buyPolicy(policyId)
+- insuranceClaimRequest(patientDID, doc)
+- approveClaimsByInsurer(claimId)
+- rejectClaimsByInsurer(claimId)
+- permitAccess(patientDID, doctorDID)
+- revokeAccess(doctorDID)
+
+---------------------
+USAGE WORKFLOW (E2E)
+---------------------
+1. User registers & gets a DID
+2. Patient uploads encrypted medical record
+3. Patient grants access to doctor
+4. Doctor decrypts, adds diagnosis (also encrypted)
+5. Claim initiated and sent to insurer
+6. Insurer verifies and processes claim
+
+-------------------------
+SECURITY & PRIVACY NOTES
+-------------------------
+- All communication via secure DID channels
+- No personal info shared with third parties
+- Medical files only accessible to authorized users
+- Keys are never exposed in frontend
+

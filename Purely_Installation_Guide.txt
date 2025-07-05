@@ -1,0 +1,60 @@
+
+===============================
+INSTALLATION GUIDE: PURELY
+===============================
+
+PREREQUISITES:
+--------------
+- Node.js (v16 or higher)
+- npm (comes with Node.js)
+- MetaMask browser extension
+- Hardhat (npm install --save-dev hardhat)
+- Ganache CLI or GUI (for local Ethereum testing)
+- MongoDB (optional: for persistent DID storage)
+- IPFS (optional: install go-ipfs if not using Infura)
+
+--------------------------------------
+1. Setting Up the Smart Contract & Client
+--------------------------------------
+
+1.1. Navigate to the client directory:
+    cd client
+
+1.2. NPM version:
+    nvm use 18
+
+1.3. Install dependencies:
+    npm install
+
+1.4. Compile the smart contracts:
+    npx hardhat compile
+
+1.5. Deploy the contracts to local network:
+    npx hardhat run scripts/deploy.js --network localhost
+
+1.6. Start the React frontend:
+    npm start
+
+-----------------------------------
+2. Setting Up the Backend Server
+-----------------------------------
+
+2.1. Navigate to the server directory:
+    cd server
+
+2.2. Install dependencies:
+    npm install
+
+2.3. Start the backend server:
+    node index.js
+
+---------------------------------
+3. Setting Up MetaMask & Network
+---------------------------------
+
+3.1. Open MetaMask and:
+    - Add a local Ethereum network (e.g., http://127.0.0.1:8545)
+    - Import an account using a private key from Hardhat or Ganache
+
+3.2. Ensure the account has test ETH (local faucet or automatic from Hardhat)
+
