@@ -1,0 +1,6 @@
+ node index.js
+npx hardhat node
+(nvm use 18 in all terminal)
+npx hardhat run scripts/deploy.js --network localhost
+update contract address
+npm start in client start
